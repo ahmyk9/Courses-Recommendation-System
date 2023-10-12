@@ -1179,3 +1179,162 @@ footer {
     margin-bottom: 24px;
   }
 }
+
+/* Profile page */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Extracted Styles from provided CSS */
+
+/* nav and related styles */
+nav__PR {
+    height: 80px; /* Reduced from 150px for a tighter navbar */
+    display: flex;
+}
+
+.nav__container__PR {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nav__link__PR {
+    margin-left: 16px;
+    text-decoration: none;
+    font-size: 16px; /* Adjusted size */
+    color: #01b2fe;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.nav__link--primary__PR {
+    border: 2px solid #01b2fe;
+    border-radius: 4px;
+}
+
+.logo__PR {
+    width: 80px; /* Adjusted size */
+}
+
+/* heading and related styles */
+header__PR {
+    height: calc(8vh - 10px); /* Adjusted size for 1/8th height, considering navbar */
+}
+
+.header__container__PR {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header__description__PR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1__PR {
+    font-size: 24px; /* Adjusted size */
+    color: #01b2fe;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+#landing__PR {
+    height: 12.5vh;  /* Explicitly setting the height for 1/8th of the viewport */
+}
+
+.nav__container__PR {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__links__PR {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav__link__PR, .nav__link--primary__PR {
+    text-decoration: none;
+    color: #01b2fe;
+    padding: 0.4em;
+    font-size: 0.9em;
+}
+
+.nav__link--primary__PR {
+    border: 1px solid #01b2fe;
+    border-radius: 4px;
+}
+
+.logo__PR {
+    height: 60%;  /* Adjusting the height relative to the container */
+}
+
+.header__container__PR {
+    text-align: center;
+}
+
+.larger-card__PR {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+}
+
+.logoPlace__PR {
+    width: 80px;
+    margin: 10px auto;
+    display: block;
+}
+
+#profile-section__PR {
+    padding: 20px 0;
+}
+
+.container__PR {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.interests__container__PR {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card__PR {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin: 10px;
+}
+
+.blue__PR {
+    color: #01b2fe;
+}
+
+@media screen and (max-width: 768px) {
+    .interests__container__PR {
+        flex-wrap: wrap;
+    }
+}
