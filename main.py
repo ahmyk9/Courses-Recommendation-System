@@ -10,6 +10,7 @@ from fastapi.responses import Response, JSONResponse
 from mangum import Mangum
 from pydantic import BaseModel, Field, constr, EmailStr, validator
 from typing import Annotated
+from typing import List
 
 load_dotenv()
 ATLAS_URI = os.getenv("ATLAS_URI")
@@ -82,7 +83,7 @@ async def get_recommendations(faculty: str,
         {"$sort": {"matches": -1}}
     ]).to_list(length=3)) > 0:
         return JSONResponse(status_code=status.HTTP_200_OK, content=json.loads(json_util.dumps(result)))
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"No matching courses found")
+    raise HTTPException(status_code=status.HTTP_400_NOT_FOUND, detail=f"No matching courses found")
 
 @app.post("/users/update/")
 async def append_recommendation_history(update: Update):
@@ -105,3 +106,29 @@ async def get_history(user: str, it: int):
         }}
     ]).to_list(length=3)
     return JSONResponse(status_code=status.HTTP_200_OK, content=json.loads(json_util.dumps(result)))
+
+
+# @app.get("/subject-info/{subject}", response_model=Result)
+# async def search_subjectsdata(subject: str):
+#     if len(result := await subjects.aggregate([
+#         {"$match": {"name": subject}},
+#         {"$project": {
+#             "_id": 1,
+#             "name": 1,
+#             "description": 1,
+#             "difficulty": 1,
+#             "review": 1,
+#             "image": 1,
+#             "interests": 1,
+#             "matches": {
+#                 "$size": {
+#                     "$setIntersection": ["$interests",subject]
+#                 }
+#             }
+#         }}
+#     ]).to_list(length=1)):
+#         return JSONResponse(status_code=status.HTTP_200_OK, content=json.loads(json_util.dumps(result)))
+#     else:
+#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"We couldn't find '{subject}'. Please try again.")
+
+
