@@ -132,3 +132,26 @@ async def get_history(user: str, it: int):
 #         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"We couldn't find '{subject}'. Please try again.")
 
 
+# @app.get("/users-with-similar-subjects/{user}/", response_model=List[str])
+# async def get_users_with_similar_subjects(user: str):
+#
+#     if await users.findone({"email": user}, {"history": 1}):
+#         similar_subjects = set(subject["name"] for
+#         subject in await users.findone({"email": user}, {"history": 1}).get("history", []))
+#
+#         matching_users = await users.aggregate([
+#             {"$match": {"email": {"$ne": user}}},
+#             {"$project": {
+#                 "email": 1,
+#                 "similar_subjects": {
+#                     "$size": {
+#                         "$setIntersection": ["$history.name", list(similar_subjects)]
+#                     }
+#                 }
+#             }},
+#             {"$match": {"similar_subjects": {"$gte": 1}}}
+#         ]).to_list(length=5)
+#
+#         return [user["email"] for user in matching_users]
+#
+#     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST_NOT_FOUND, detail=f"Coould not find any users with similar history")
